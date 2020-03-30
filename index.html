@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pleasant Tour</title>
+    <link rel="shortcut icon" type="image/png" href="resources/favicon/favicon.png" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- loader -->
+    <script>
+        $(window).on('load', function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");
+        });
+    </script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/15b99408c6.js" crossorigin="anonymous"></script>
+    <script src="resources/data/database.js"></script>
+    <script src="resources/js/router.js"></script>
+    <script src="components/item.js"></script>
+    <script src="resources/js/functions.js"></script>
+    <script src="components/home.js"></script>
+    <script src="components/list.js"></script>
+    <script src="components/admin.js"></script>
+    <script src="components/info.js"></script>
+    <script src="components/private.js"></script>
+    <script src="components/contact.js"></script>
+    <link rel="stylesheet" href="resources/css/index.css">
+    <script src="resources/js/full-page-scroll.js"></script>
+    <link rel="stylesheet" href="resources/css/full-page-scroll.css">
+</head>
+
+<body>
+    <div class="se-pre-con"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+        <a class="navbar-brand" href="#" onclick="redirect('home')">
+            <img src="resources/img/logo.png" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <form class="nav-item form-inline" id="searchBar" onsubmit="search();return false;">
+                <input id="inSearch" class="form-control mr-sm-2 mr-auto" type="text" placeholder="Search tours"
+                    autofocus>
+                <button class="btn btn-success" type="submit">Search Tours</button>
+                <div class="buttonNavbar ml-auto">
+                    <button class="btn btn-warning"
+                        onclick="document.getElementById('id01').style.display='block'; return false;"><i
+                            class="fas fa-user"></i>
+                        Login</button>
+                    <button class="btn btn-primary" onclick="contact(); return false;"><i class="fas fa-phone"></i>
+                        Contact</button>
+                </div>
+            </form>
+
+            <!-- Title Navbar -->
+            <div class="titleNavbar mr-auto">
+                <a onclick="redirect('home')">
+                    <h3>-Pleasant Tour-</h3>
+                </a>
+            </div>
+            <!-- End Title Navbar -->
+            <!--  -->
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="redirect('home')"><i class="fas fa-home"></i> HOME <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        onclick="listPage('Local tours')">
+                        LOCAL TOURS
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#" onclick="listPage('North Vietnam')"> NORTH VIETNAM</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#" onclick="listPage('Middle Vietnam')"> MIDDLE VIETNAM</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#" onclick="listPage('South Vietnam')"> SOUTH VIETNAM</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        onclick="listPage('Foreign tours')">
+                        FOREIGN TOURS
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" onclick="listPage('Asia')"> ASIA</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" onclick="listPage('Japan')">JAPAN</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="listPage('China')">CHINA</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="listPage('Singapore')">SINGAPORE</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" onclick="listPage('Europe')"> EUROPE</a>
+                            <ul class="dropdown-menu">
+                                <li onclick="listPage('France')"><a class="dropdown-item" href="#"
+                                        onclick="listPage('France')">FRANCE</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="listPage('Britain')">BRITAIN</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="listPage('Italia')">ITALIA</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" onclick="listPage('North America')"> NORTH
+                                AMERICA</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" onclick="listPage('United States')">UNITED STATES</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="listPage('Canada')">CANADA</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" onclick="privateTour()">
+                        PRIVATE TOURS
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" onclick="listPage('Hot deals')">
+                        HOT DEALS
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" onclick="listPage('Recommended tours')">
+                        RECOMMENDED TOURS
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" onclick="listPage('All tours')">
+                        ALL TOURS
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" onsubmit="redirect('admin');return false;" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="resources/img/login.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input id="adminIn" type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input id="passwordIn" type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <button class="btn" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <div id="root">
+    </div>
+    <script type="text/javascript">
+        $(document).ready(redirect("home"));
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.location.hash = "#0";
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>
